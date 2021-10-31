@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,5 +35,9 @@ public class HelloRestController {
 		return "Hello "+user.getFirstName()+" "+user.getLastName()+"!";
 	}
 	
+	@PutMapping("/put/{firstName}")
+	public String sayHelloPut(@PathVariable String firstName,@RequestParam(value="lastName") String lastName) {
+		return "Hello "+firstName+" "+lastName+"!";
+	}
 	
 }
